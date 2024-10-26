@@ -1,0 +1,74 @@
+{
+  "kind": "collectionType",
+  "collectionName": "veilles",
+  "info": {
+    "singularName": "veille",
+    "pluralName": "veilles",
+    "displayName": "Veille",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "type": {
+      "type": "string"
+    },
+    "statut": {
+      "type": "enumeration",
+      "enum": [
+        "A traiter",
+        "En cours",
+        "Clôturé"
+      ]
+    },
+    "gravite": {
+      "type": "enumeration",
+      "enum": [
+        "Faible",
+        "Moyenne",
+        "Elevée"
+      ]
+    },
+    "description": {
+      "type": "text"
+    },
+    "action_menee": {
+      "type": "text"
+    },
+    "date_ouverture": {
+      "type": "datetime"
+    },
+    "date_cloture": {
+      "type": "datetime"
+    },
+    "origine": {
+      "type": "text"
+    },
+    "responsable": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::rh.rh",
+      "inversedBy": "veilles"
+    },
+    "article": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::article.article",
+      "inversedBy": "veilles"
+    },
+    "session": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::session.session",
+      "inversedBy": "veilles"
+    },
+    "user": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "veilles"
+    }
+  }
+}

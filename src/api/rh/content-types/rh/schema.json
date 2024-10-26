@@ -1,0 +1,146 @@
+{
+  "kind": "collectionType",
+  "collectionName": "rhs",
+  "info": {
+    "singularName": "rh",
+    "pluralName": "rhs",
+    "displayName": "Rh",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "nom": {
+      "type": "string"
+    },
+    "prenom": {
+      "type": "string"
+    },
+    "email": {
+      "type": "email"
+    },
+    "qualification": {
+      "type": "string"
+    },
+    "user": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "rhs"
+    },
+    "pedagogique": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::formation.formation",
+      "mappedBy": "referent_pedagogique"
+    },
+    "administratif": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::formation.formation",
+      "mappedBy": "referent_administratif"
+    },
+    "handicap": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::formation.formation",
+      "mappedBy": "referent_handicap"
+    },
+    "roles": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::rh-role.rh-role",
+      "inversedBy": "rhs"
+    },
+    "telephone": {
+      "type": "string"
+    },
+    "subordination": {
+      "type": "enumeration",
+      "enum": [
+        "dirigeant",
+        "salarié",
+        "sous-traitant"
+      ]
+    },
+    "adresse": {
+      "type": "text"
+    },
+    "competences": {
+      "type": "string"
+    },
+    "geographie": {
+      "type": "string"
+    },
+    "secusociale": {
+      "type": "string"
+    },
+    "entreprise": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::entreprise.entreprise",
+      "inversedBy": "rhs"
+    },
+    "civilite": {
+      "type": "enumeration",
+      "enum": [
+        "Monsieur",
+        "Madame"
+      ]
+    },
+    "codepostal": {
+      "type": "string"
+    },
+    "ville": {
+      "type": "string"
+    },
+    "pays": {
+      "type": "string",
+      "default": "FRANCE"
+    },
+    "dates_modules_matin": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::dates-module.dates-module",
+      "mappedBy": "formateur_matin"
+    },
+    "dates_modules_apresmidi": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::dates-module.dates-module",
+      "mappedBy": "formateur_apresmidi"
+    },
+    "sessions": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::session.session",
+      "mappedBy": "responsable"
+    },
+    "veilles": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::veille.veille",
+      "mappedBy": "responsable"
+    },
+    "gestion_commerciales": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::gestion-commerciale.gestion-commerciale",
+      "mappedBy": "rh"
+    },
+    "emails": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::email.email",
+      "mappedBy": "rh"
+    },
+    "documents": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::document.document",
+      "mappedBy": "rh"
+    }
+  }
+}

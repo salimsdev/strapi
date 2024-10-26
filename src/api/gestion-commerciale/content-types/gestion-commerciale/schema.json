@@ -1,0 +1,104 @@
+{
+  "kind": "collectionType",
+  "collectionName": "gestion_commerciales",
+  "info": {
+    "singularName": "gestion-commerciale",
+    "pluralName": "gestion-commerciales",
+    "displayName": "Gestion-commerciale",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "titre": {
+      "type": "string"
+    },
+    "etapes": {
+      "type": "enumeration",
+      "enum": [
+        "Prospect",
+        "Premier contact",
+        "Offre commerciale",
+        "Négociation",
+        "Offre acceptée",
+        "Offre archivée"
+      ]
+    },
+    "statut": {
+      "type": "enumeration",
+      "enum": [
+        "En attente",
+        "Gagné",
+        "Perdu",
+        "Annulé"
+      ]
+    },
+    "rh": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::rh.rh",
+      "inversedBy": "gestion_commerciales"
+    },
+    "formation": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::formation.formation",
+      "inversedBy": "gestion_commerciales"
+    },
+    "contactNom": {
+      "type": "string"
+    },
+    "contactPrenom": {
+      "type": "string"
+    },
+    "contactEmail": {
+      "type": "email"
+    },
+    "contactTel": {
+      "type": "string"
+    },
+    "nbStagiaires": {
+      "type": "integer"
+    },
+    "tarif": {
+      "type": "biginteger"
+    },
+    "evolution": {
+      "type": "text"
+    },
+    "notes": {
+      "type": "text"
+    },
+    "entreprise": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::entreprise.entreprise",
+      "inversedBy": "gestion_commerciales"
+    },
+    "apporteur": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::entreprise.entreprise",
+      "inversedBy": "opportuniteApportee"
+    },
+    "action": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::action.action"
+    },
+    "documents": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::document.document",
+      "mappedBy": "gestion_commerciale"
+    },
+    "user": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "gestion_commerciales"
+    }
+  }
+}

@@ -1,0 +1,125 @@
+{
+  "kind": "collectionType",
+  "collectionName": "actions",
+  "info": {
+    "singularName": "action",
+    "pluralName": "actions",
+    "displayName": "Action",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "intitule": {
+      "type": "string"
+    },
+    "objectif_general": {
+      "type": "text"
+    },
+    "formation": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::formation.formation",
+      "inversedBy": "actions"
+    },
+    "modules": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::module.module",
+      "inversedBy": "actions"
+    },
+    "sessions": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::session.session",
+      "mappedBy": "action"
+    },
+    "prerequis": {
+      "type": "text",
+      "default": "Aucun prérequis"
+    },
+    "public": {
+      "type": "text"
+    },
+    "modalites_delais_acces": {
+      "type": "richtext"
+    },
+    "nature_action": {
+      "type": "enumeration",
+      "enum": [
+        "Action de formation",
+        "Bilan de compétences",
+        "Action de validation des acquis de l'expérience",
+        "Action de formation par apprentissage"
+      ]
+    },
+    "modalites_evaluation_suivi": {
+      "type": "richtext"
+    },
+    "diplome_bpf": {
+      "type": "text"
+    },
+    "points_forts": {
+      "type": "text"
+    },
+    "validation_blocs": {
+      "type": "richtext"
+    },
+    "equivalences": {
+      "type": "richtext"
+    },
+    "suites_debouches": {
+      "type": "richtext"
+    },
+    "tarif": {
+      "type": "decimal"
+    },
+    "tva": {
+      "type": "decimal"
+    },
+    "modalites_reglement": {
+      "type": "text"
+    },
+    "duree": {
+      "type": "text"
+    },
+    "certification": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::certification.certification",
+      "inversedBy": "actions"
+    },
+    "evaluations": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::evaluation.evaluation",
+      "mappedBy": "actions"
+    },
+    "evaluation_stagiaires": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::evaluation-stagiaire.evaluation-stagiaire",
+      "mappedBy": "action"
+    },
+    "emails": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::email.email",
+      "mappedBy": "action"
+    },
+    "documents": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::document.document",
+      "mappedBy": "action"
+    },
+    "user": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "actions"
+    }
+  }
+}

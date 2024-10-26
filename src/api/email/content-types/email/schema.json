@@ -1,0 +1,103 @@
+{
+  "kind": "collectionType",
+  "collectionName": "emails",
+  "info": {
+    "singularName": "email",
+    "pluralName": "emails",
+    "displayName": "Email",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "from": {
+      "type": "email"
+    },
+    "to": {
+      "type": "email"
+    },
+    "objet": {
+      "type": "string"
+    },
+    "stagiaire": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::stagiaire.stagiaire",
+      "inversedBy": "emails"
+    },
+    "session": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::session.session",
+      "inversedBy": "emails"
+    },
+    "text": {
+      "type": "richtext"
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "Autres emails",
+        "Email de bienvenue",
+        "Email accès apprenant",
+        "Email de confirmation",
+        "Email de convocation",
+        "Email de rappel",
+        "Echanges pendant la session",
+        "Email de confirmation d'abandon de la formation",
+        "Email de confirmation d'abandon d'un salarié",
+        "Email d'absence",
+        "Email de présence",
+        "Email de satisfaction à chaud",
+        "Email de satisfaction à froid",
+        "Email pour certificat de réalisation",
+        "Email de satisfaction formateur",
+        "Email de satisfaction entreprise",
+        "Email de facturation",
+        "Email d'envoi de devis",
+        "Email de rappel de facturation",
+        "Email pour formateur sous-traitant",
+        "Email pour formateur"
+      ]
+    },
+    "rh": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::rh.rh",
+      "inversedBy": "emails"
+    },
+    "action": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::action.action",
+      "inversedBy": "emails"
+    },
+    "documents": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::document.document",
+      "mappedBy": "email"
+    },
+    "entreprise": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::entreprise.entreprise",
+      "inversedBy": "emails"
+    },
+    "sent": {
+      "type": "boolean",
+      "default": true
+    },
+    "dateToSend": {
+      "type": "datetime"
+    },
+    "user": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "emails"
+    }
+  }
+}

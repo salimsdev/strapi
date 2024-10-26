@@ -1,0 +1,95 @@
+{
+  "kind": "collectionType",
+  "collectionName": "stagiaires",
+  "info": {
+    "singularName": "stagiaire",
+    "pluralName": "stagiaires",
+    "displayName": "Stagiaire",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "nom": {
+      "type": "string"
+    },
+    "prenom": {
+      "type": "string"
+    },
+    "adresse": {
+      "type": "string"
+    },
+    "telephone": {
+      "type": "string"
+    },
+    "email": {
+      "type": "email"
+    },
+    "civilite": {
+      "type": "enumeration",
+      "enum": [
+        "Monsieur",
+        "Madame"
+      ]
+    },
+    "date_naissance": {
+      "type": "datetime"
+    },
+    "codepostal": {
+      "type": "string"
+    },
+    "ville": {
+      "type": "string"
+    },
+    "pays": {
+      "type": "string",
+      "default": "FRANCE"
+    },
+    "stagiaire_formations": {
+      "displayName": "stagiaire1",
+      "type": "component",
+      "repeatable": true,
+      "component": "stagiaire-extend.stagiaire1"
+    },
+    "uuid": {
+      "type": "string"
+    },
+    "emails": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::email.email",
+      "mappedBy": "stagiaire"
+    },
+    "evaluation_stagiaires": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::evaluation-stagiaire.evaluation-stagiaire",
+      "mappedBy": "stagiaire"
+    },
+    "documents": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::document.document",
+      "mappedBy": "stagiaire"
+    },
+    "dates_modules": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::dates-module.dates-module",
+      "mappedBy": "stagiaires_apresmidi"
+    },
+    "sessions_abandonnees": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::session.session"
+    },
+    "user": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "stagiaires"
+    }
+  }
+}

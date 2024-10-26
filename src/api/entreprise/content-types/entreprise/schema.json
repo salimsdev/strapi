@@ -1,0 +1,136 @@
+{
+  "kind": "collectionType",
+  "collectionName": "entreprises",
+  "info": {
+    "singularName": "entreprise",
+    "pluralName": "entreprises",
+    "displayName": "Entreprise",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "denomination": {
+      "type": "string"
+    },
+    "adresse": {
+      "type": "string"
+    },
+    "codepostal": {
+      "type": "string"
+    },
+    "ville": {
+      "type": "string"
+    },
+    "pays": {
+      "type": "string",
+      "default": "FRANCE"
+    },
+    "website": {
+      "type": "string"
+    },
+    "telephone": {
+      "type": "string"
+    },
+    "email": {
+      "type": "email"
+    },
+    "contactnom": {
+      "type": "string"
+    },
+    "contactprenom": {
+      "type": "string"
+    },
+    "contacttel": {
+      "type": "string"
+    },
+    "contactemail": {
+      "type": "email"
+    },
+    "contactfonction": {
+      "type": "string"
+    },
+    "codeape": {
+      "type": "string"
+    },
+    "numerotva": {
+      "type": "string"
+    },
+    "relations": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::relation-entreprise.relation-entreprise",
+      "inversedBy": "entreprises"
+    },
+    "siret": {
+      "type": "string"
+    },
+    "siren": {
+      "type": "string"
+    },
+    "nda": {
+      "type": "string"
+    },
+    "rhs": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::rh.rh",
+      "mappedBy": "entreprise"
+    },
+    "gestion_commerciales": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::gestion-commerciale.gestion-commerciale",
+      "mappedBy": "entreprise"
+    },
+    "opportuniteApportee": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::gestion-commerciale.gestion-commerciale",
+      "mappedBy": "apporteur"
+    },
+    "documents": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::document.document",
+      "mappedBy": "entreprise"
+    },
+    "emails": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::email.email",
+      "mappedBy": "entreprise"
+    },
+    "user": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "entreprises"
+    },
+    "regionnda": {
+      "type": "enumeration",
+      "enum": [
+        "Auvergne-Rhône-Alpes",
+        "Bourgogne-Franche-Comté",
+        "Bretagne",
+        "Centre-Val de Loire",
+        "Corse",
+        "Grand-Est",
+        "Guadeloupe",
+        "Guyane",
+        "Hauts-de-France",
+        "Île de France",
+        "La Réunion",
+        "Martinique",
+        "Mayotte",
+        "Normandie",
+        "Nouvelle-Aquitaine",
+        "Occitanie",
+        "Pays de la Loire",
+        "Provence-Alpes-Côte d'Azur"
+      ]
+    }
+  }
+}

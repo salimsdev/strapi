@@ -1,0 +1,12 @@
+{
+  "collectionName": "components_reponse_stagiaire_extend_reponses",
+  "info": {
+    "displayName": "reponse"
+  },
+  "options": {},
+  "attributes": {
+    "textAnswer": {
+      "type": "text"
+    }
+  }
+}

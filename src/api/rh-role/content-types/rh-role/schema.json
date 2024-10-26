@@ -1,0 +1,25 @@
+{
+  "kind": "collectionType",
+  "collectionName": "rh_roles",
+  "info": {
+    "singularName": "rh-role",
+    "pluralName": "rh-roles",
+    "displayName": "rh-role",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "role": {
+      "type": "string"
+    },
+    "rhs": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::rh.rh",
+      "mappedBy": "roles"
+    }
+  }
+}

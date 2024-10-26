@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_session_extend_session_evaluations",
+  "info": {
+    "displayName": "session_evaluations",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "evaluation": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::evaluation.evaluation"
+    },
+    "published": {
+      "type": "boolean"
+    }
+  }
+}

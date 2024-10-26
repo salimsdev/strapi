@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_reponses_stagiaire_extend_reponses",
+  "info": {
+    "displayName": "reponses"
+  },
+  "options": {},
+  "attributes": {
+    "text": {
+      "type": "string"
+    },
+    "checked": {
+      "type": "boolean"
+    },
+    "correct": {
+      "type": "boolean"
+    }
+  }
+}

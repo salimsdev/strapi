@@ -1,0 +1,57 @@
+{
+  "kind": "collectionType",
+  "collectionName": "articles",
+  "info": {
+    "singularName": "article",
+    "pluralName": "articles",
+    "displayName": "Article",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "pubDate": {
+      "type": "datetime"
+    },
+    "link": {
+      "type": "text"
+    },
+    "source": {
+      "type": "string"
+    },
+    "veilles": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::veille.veille",
+      "mappedBy": "article"
+    },
+    "categorie": {
+      "type": "enumeration",
+      "enum": [
+        "Veille légale et réglementaire",
+        "Veille technologique",
+        "Veille pédagogique",
+        "Veille création d'entreprise",
+        "Veille VAE",
+        "Veille Handicap",
+        "Veille interactive",
+        "Veille métier",
+        "Archivés"
+      ]
+    },
+    "user": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "articles"
+    }
+  }
+}

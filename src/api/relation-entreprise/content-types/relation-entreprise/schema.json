@@ -1,0 +1,25 @@
+{
+  "kind": "collectionType",
+  "collectionName": "relation_entreprises",
+  "info": {
+    "singularName": "relation-entreprise",
+    "pluralName": "relation-entreprises",
+    "displayName": "relation-entreprise",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "relation": {
+      "type": "string"
+    },
+    "entreprises": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::entreprise.entreprise",
+      "mappedBy": "relations"
+    }
+  }
+}

@@ -1,0 +1,90 @@
+{
+  "kind": "collectionType",
+  "collectionName": "financements",
+  "info": {
+    "singularName": "financement",
+    "pluralName": "financements",
+    "displayName": "Financement",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "stagiaire": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::stagiaire.stagiaire"
+    },
+    "session": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::session.session"
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "Entreprise",
+        "OPCO",
+        "CPF",
+        "Pouvoirs publics",
+        "Particulier",
+        "Particulier (Hors BPF)",
+        "Sous-traitance"
+      ]
+    },
+    "entreprise": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::entreprise.entreprise"
+    },
+    "financeur": {
+      "type": "string"
+    },
+    "categorie": {
+      "type": "enumeration",
+      "enum": [
+        "Contrat d’apprentissage",
+        "Contrat de professionnalisation",
+        "Promotion ou reconversion par alternance",
+        "Projet de transition professionnelle",
+        "Dispositif personnes en recherche d’emploi",
+        "Dispositif pour les travailleurs non-salariés",
+        "Plan de développement des compétences ou autres"
+      ]
+    },
+    "montant": {
+      "type": "decimal"
+    },
+    "pouvoirs_publics": {
+      "type": "enumeration",
+      "enum": [
+        "Pour la formation de leurs agents",
+        "Instances européennes",
+        "Etat",
+        "Conseils régionaux",
+        "France travail",
+        "Autres ressources publiques"
+      ]
+    },
+    "factured": {
+      "type": "boolean"
+    },
+    "paid": {
+      "type": "boolean"
+    },
+    "document": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::document.document",
+      "inversedBy": "financement"
+    },
+    "user": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "financements"
+    }
+  }
+}

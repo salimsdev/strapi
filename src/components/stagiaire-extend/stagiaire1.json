@@ -1,0 +1,53 @@
+{
+  "collectionName": "components_stagiaire_extend_stagiaire1s",
+  "info": {
+    "displayName": "stagiaire1",
+    "icon": "book-reader",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "formation": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::formation.formation"
+    },
+    "statut_formation": {
+      "type": "enumeration",
+      "enum": [
+        "Prospect",
+        "Formation acceptée",
+        "Formation programmée",
+        "Formation en cours",
+        "Formation abandonnée",
+        "Formation réalisée"
+      ]
+    },
+    "type": {
+      "type": "string"
+    },
+    "entreprise": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::entreprise.entreprise"
+    },
+    "session": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::session.session"
+    },
+    "inscription": {
+      "type": "datetime"
+    },
+    "action": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::action.action"
+    },
+    "modules": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::module.module"
+    }
+  }
+}

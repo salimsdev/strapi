@@ -1,0 +1,58 @@
+{
+  "kind": "collectionType",
+  "collectionName": "question_stagiaires",
+  "info": {
+    "singularName": "question-stagiaire",
+    "pluralName": "question-stagiaires",
+    "displayName": "Question-stagiaire",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "intitule": {
+      "type": "text"
+    },
+    "type_question": {
+      "type": "enumeration",
+      "enum": [
+        "Question ouverte",
+        "Question à choix unique",
+        "Question à choix multiples"
+      ]
+    },
+    "reponses": {
+      "displayName": "reponses",
+      "type": "component",
+      "repeatable": true,
+      "component": "reponses-stagiaire-extend.reponses"
+    },
+    "reponse": {
+      "displayName": "reponse",
+      "type": "component",
+      "repeatable": false,
+      "component": "reponse-stagiaire-extend.reponse"
+    },
+    "correction": {
+      "type": "enumeration",
+      "enum": [
+        "acquis",
+        "partiellement acquis",
+        "non acquis"
+      ]
+    },
+    "competence": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::competence.competence"
+    },
+    "user": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "question_stagiaires"
+    }
+  }
+}

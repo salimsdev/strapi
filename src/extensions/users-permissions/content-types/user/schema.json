@@ -1,0 +1,224 @@
+{
+  "kind": "collectionType",
+  "collectionName": "up_users",
+  "info": {
+    "name": "user",
+    "description": "",
+    "singularName": "user",
+    "pluralName": "users",
+    "displayName": "User"
+  },
+  "options": {
+    "draftAndPublish": false,
+    "timestamps": true
+  },
+  "attributes": {
+    "username": {
+      "type": "string",
+      "minLength": 3,
+      "unique": true,
+      "configurable": false,
+      "required": true
+    },
+    "email": {
+      "type": "email",
+      "minLength": 6,
+      "configurable": false,
+      "required": true
+    },
+    "provider": {
+      "type": "string",
+      "configurable": false
+    },
+    "password": {
+      "type": "password",
+      "minLength": 6,
+      "configurable": false,
+      "private": true
+    },
+    "resetPasswordToken": {
+      "type": "string",
+      "configurable": false,
+      "private": true
+    },
+    "confirmationToken": {
+      "type": "string",
+      "configurable": false,
+      "private": true
+    },
+    "confirmed": {
+      "type": "boolean",
+      "default": false,
+      "configurable": false
+    },
+    "blocked": {
+      "type": "boolean",
+      "default": false,
+      "configurable": false
+    },
+    "role": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.role",
+      "inversedBy": "users",
+      "configurable": false
+    },
+    "offre": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::offre.offre",
+      "inversedBy": "users"
+    },
+    "nom": {
+      "type": "string",
+      "required": true
+    },
+    "prenom": {
+      "type": "string",
+      "required": true
+    },
+    "paiement": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "mon_of": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::mon-of.mon-of",
+      "mappedBy": "user"
+    },
+    "documents": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::document.document",
+      "mappedBy": "user"
+    },
+    "lieux": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::lieu.lieu",
+      "mappedBy": "user"
+    },
+    "actions": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::action.action",
+      "mappedBy": "user"
+    },
+    "articles": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::article.article",
+      "mappedBy": "user"
+    },
+    "certifications": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::certification.certification",
+      "mappedBy": "user"
+    },
+    "competences": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::competence.competence",
+      "mappedBy": "user"
+    },
+    "dates_modules": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::dates-module.dates-module",
+      "mappedBy": "user"
+    },
+    "emails": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::email.email",
+      "mappedBy": "user"
+    },
+    "entreprises": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::entreprise.entreprise",
+      "mappedBy": "user"
+    },
+    "evaluations": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::evaluation.evaluation",
+      "mappedBy": "user"
+    },
+    "evaluation_stagiaires": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::evaluation-stagiaire.evaluation-stagiaire",
+      "mappedBy": "user"
+    },
+    "financements": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::financement.financement",
+      "mappedBy": "user"
+    },
+    "formations": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::formation.formation",
+      "mappedBy": "user"
+    },
+    "gestion_commerciales": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::gestion-commerciale.gestion-commerciale",
+      "mappedBy": "user"
+    },
+    "modules": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::module.module",
+      "mappedBy": "user"
+    },
+    "questions": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::question.question",
+      "mappedBy": "user"
+    },
+    "question_stagiaires": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::question-stagiaire.question-stagiaire",
+      "mappedBy": "user"
+    },
+    "rhs": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::rh.rh",
+      "mappedBy": "user"
+    },
+    "sessions": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::session.session",
+      "mappedBy": "user"
+    },
+    "stagiaires": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::stagiaire.stagiaire",
+      "mappedBy": "user"
+    },
+    "veilles": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::veille.veille",
+      "mappedBy": "user"
+    },
+    "veille_metiers": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::veille-metier.veille-metier",
+      "mappedBy": "user"
+    }
+  }
+}

@@ -1,0 +1,138 @@
+{
+  "kind": "collectionType",
+  "collectionName": "sessions",
+  "info": {
+    "singularName": "session",
+    "pluralName": "sessions",
+    "displayName": "Session",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "nom": {
+      "type": "string"
+    },
+    "formation": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::formation.formation",
+      "inversedBy": "sessions"
+    },
+    "nb_stagiaires_min": {
+      "type": "integer"
+    },
+    "nb_stagiaires_max": {
+      "type": "integer"
+    },
+    "statut": {
+      "type": "enumeration",
+      "enum": [
+        "En projet",
+        "Confirmée",
+        "En cours",
+        "Réalisée",
+        "Annulée",
+        "Archivée"
+      ]
+    },
+    "responsable": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::rh.rh",
+      "inversedBy": "sessions"
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "Inter-Entreprise",
+        "Intra-Entreprise",
+        "Individuel"
+      ]
+    },
+    "inclus_bpf": {
+      "type": "boolean",
+      "default": true
+    },
+    "en_soustraitance": {
+      "type": "boolean",
+      "default": false
+    },
+    "nature_action": {
+      "type": "enumeration",
+      "enum": [
+        "Action de formation",
+        "Bilan de compétences",
+        "Action de validation des acquis de l'expérience",
+        "Action de formation par apprentissage"
+      ]
+    },
+    "startDate": {
+      "type": "datetime"
+    },
+    "endDate": {
+      "type": "datetime"
+    },
+    "session_modules": {
+      "type": "component",
+      "repeatable": true,
+      "component": "session-extend.session1"
+    },
+    "session_stagiaires": {
+      "displayName": "Session2",
+      "type": "component",
+      "repeatable": true,
+      "component": "session-extend.session2"
+    },
+    "action": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::action.action",
+      "inversedBy": "sessions"
+    },
+    "emails": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::email.email",
+      "mappedBy": "session"
+    },
+    "evaluation_stagiaires": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::evaluation-stagiaire.evaluation-stagiaire",
+      "mappedBy": "session"
+    },
+    "session_evaluations": {
+      "displayName": "session_evaluations",
+      "type": "component",
+      "repeatable": true,
+      "component": "session-extend.session-evaluations"
+    },
+    "veilles": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::veille.veille",
+      "mappedBy": "session"
+    },
+    "documents": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::document.document",
+      "mappedBy": "session"
+    },
+    "stagiaires_abandon": {
+      "displayName": "stagiaires-abandon",
+      "type": "component",
+      "repeatable": true,
+      "component": "session-extend.stagiaires-abandon"
+    },
+    "user": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "sessions"
+    }
+  }
+}

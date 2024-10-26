@@ -1,0 +1,46 @@
+{
+  "collectionName": "components_session_extend_session2s",
+  "info": {
+    "displayName": "Session2",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "stagiaires": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::stagiaire.stagiaire"
+    },
+    "modules": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::module.module"
+    },
+    "stagFormId": {
+      "type": "string"
+    },
+    "attentes": {
+      "type": "text"
+    },
+    "solutions": {
+      "type": "text"
+    },
+    "entreprise": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::entreprise.entreprise"
+    },
+    "tarif": {
+      "type": "decimal"
+    },
+    "statut": {
+      "type": "enumeration",
+      "enum": [
+        "Prospect",
+        "Accepté",
+        "Signé",
+        "Paiement reçu"
+      ]
+    }
+  }
+}

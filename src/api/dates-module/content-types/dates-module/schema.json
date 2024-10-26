@@ -1,0 +1,72 @@
+{
+  "kind": "collectionType",
+  "collectionName": "dates_modules",
+  "info": {
+    "singularName": "dates-module",
+    "pluralName": "dates-modules",
+    "displayName": "DatesModule",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "moduleDate": {
+      "type": "datetime"
+    },
+    "matinStart": {
+      "type": "time"
+    },
+    "matinEnd": {
+      "type": "time"
+    },
+    "apresmidiStart": {
+      "type": "time"
+    },
+    "apresmidiEnd": {
+      "type": "time"
+    },
+    "formateur_matin": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::rh.rh",
+      "inversedBy": "dates_modules_matin"
+    },
+    "formateur_apresmidi": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::rh.rh",
+      "inversedBy": "dates_modules_apresmidi"
+    },
+    "stagiaires_matin": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::stagiaire.stagiaire",
+      "inversedBy": "dates_modules"
+    },
+    "stagiaires_apresmidi": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::stagiaire.stagiaire",
+      "inversedBy": "dates_modules"
+    },
+    "documents": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::document.document",
+      "mappedBy": "dates_module"
+    },
+    "lieu": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::lieu.lieu"
+    },
+    "user": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "dates_modules"
+    }
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_question_extend_reponses",
+  "info": {
+    "displayName": "reponses",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "text": {
+      "type": "string"
+    },
+    "correct": {
+      "type": "boolean"
+    }
+  }
+}

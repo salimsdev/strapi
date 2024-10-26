@@ -1,0 +1,56 @@
+{
+  "kind": "collectionType",
+  "collectionName": "lieux",
+  "info": {
+    "singularName": "lieu",
+    "pluralName": "lieux",
+    "displayName": "Lieu",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "codepostal": {
+      "type": "string"
+    },
+    "ville": {
+      "type": "string"
+    },
+    "salle": {
+      "type": "string"
+    },
+    "mode": {
+      "type": "enumeration",
+      "enum": [
+        "Présentiel",
+        "A distance"
+      ]
+    },
+    "nom_outil": {
+      "type": "string"
+    },
+    "url_outil": {
+      "type": "string"
+    },
+    "mon_of": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::mon-of.mon-of",
+      "inversedBy": "lieux"
+    },
+    "adresse": {
+      "type": "string"
+    },
+    "user": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "lieux"
+    }
+  }
+}

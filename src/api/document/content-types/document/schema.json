@@ -1,0 +1,127 @@
+{
+  "kind": "collectionType",
+  "collectionName": "documents",
+  "info": {
+    "singularName": "document",
+    "pluralName": "documents",
+    "displayName": "Document",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "doc": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "files",
+        "images"
+      ]
+    },
+    "stagiaire": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::stagiaire.stagiaire",
+      "inversedBy": "documents"
+    },
+    "action": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::action.action",
+      "inversedBy": "documents"
+    },
+    "session": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::session.session",
+      "inversedBy": "documents"
+    },
+    "rh": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::rh.rh",
+      "inversedBy": "documents"
+    },
+    "email": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::email.email",
+      "inversedBy": "documents"
+    },
+    "entreprise": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::entreprise.entreprise",
+      "inversedBy": "documents"
+    },
+    "dates_module": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::dates-module.dates-module",
+      "inversedBy": "documents"
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "Logo",
+        "Tampon",
+        "Signature",
+        "Programme de formation",
+        "Règlement intérieur",
+        "Contrat de formation professionnelle",
+        "Convention de formation professionnelle",
+        "Conditions générales de vente",
+        "Feuilles de présence signées",
+        "Relevés de connexion",
+        "Autres documents de présence",
+        "Facture",
+        "Devis",
+        "Contrat de sous-traitance",
+        "Engagement sous-traitant",
+        "CV",
+        "Diplôme",
+        "Fiche de poste",
+        "Autres documents collaborateurs",
+        "Extrait Kbis",
+        "Récépissé de déclaration d'activité",
+        "Bilan pédagogique et financier",
+        "Certificat Qualiopi",
+        "Diplôme du dirigeant",
+        "Autres documents OF"
+      ]
+    },
+    "financement": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::financement.financement",
+      "mappedBy": "document"
+    },
+    "number": {
+      "type": "string"
+    },
+    "gestion_commerciale": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::gestion-commerciale.gestion-commerciale",
+      "inversedBy": "documents"
+    },
+    "mon_of": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::mon-of.mon-of",
+      "inversedBy": "documents"
+    },
+    "user": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "documents"
+    }
+  }
+}

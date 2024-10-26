@@ -1,0 +1,181 @@
+{
+  "kind": "collectionType",
+  "collectionName": "mon_ofs",
+  "info": {
+    "singularName": "mon-of",
+    "pluralName": "mon-ofs",
+    "displayName": "Mon-of",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "user": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "mon_of"
+    },
+    "siret": {
+      "type": "string"
+    },
+    "denomination": {
+      "type": "string"
+    },
+    "adresse": {
+      "type": "string"
+    },
+    "codepostal": {
+      "type": "string"
+    },
+    "ville": {
+      "type": "string"
+    },
+    "pays": {
+      "type": "string"
+    },
+    "telephone": {
+      "type": "string"
+    },
+    "website": {
+      "type": "string"
+    },
+    "forme_juridique": {
+      "type": "enumeration",
+      "enum": [
+        "Entreprise Individuelle",
+        "Entreprise Unipersonnelle à Responsabilité Limitée",
+        "Société à Responsabilité Limitée",
+        "Société par Actions Simplifiée Unipersonnelle",
+        "Société par Actions Simplifiée",
+        "Société Anonyme",
+        "Société en Nom Collectif",
+        "Société en Commandite Simple",
+        "Société en Commandite par Actions"
+      ]
+    },
+    "codeape": {
+      "type": "string"
+    },
+    "numerotva": {
+      "type": "string"
+    },
+    "villeRCS": {
+      "type": "string"
+    },
+    "capitalsocial": {
+      "type": "string"
+    },
+    "representantnom": {
+      "type": "string"
+    },
+    "representantprenom": {
+      "type": "string"
+    },
+    "representantfonction": {
+      "type": "string"
+    },
+    "representanttel": {
+      "type": "string"
+    },
+    "representantemail": {
+      "type": "string"
+    },
+    "nda": {
+      "type": "string"
+    },
+    "region": {
+      "type": "enumeration",
+      "enum": [
+        "Auvergne-Rhône-Alpes",
+        "Bourgogne-Franche-Comté",
+        "Bretagne",
+        "Centre-Val de Loire",
+        "Corse",
+        "Grand-Est",
+        "Guadeloupe",
+        "Guyane",
+        "Hauts-de-France",
+        "Île de France",
+        "La Réunion",
+        "Martinique",
+        "Mayotte",
+        "Normandie",
+        "Nouvelle-Aquitaine",
+        "Occitanie",
+        "Pays de la Loire",
+        "Provence-Alpes-Côte d'Azur"
+      ]
+    },
+    "qualiopi": {
+      "type": "boolean",
+      "default": false
+    },
+    "tva_exoneration": {
+      "type": "boolean",
+      "default": false
+    },
+    "tva_franchise": {
+      "type": "boolean",
+      "default": false
+    },
+    "tva": {
+      "type": "decimal"
+    },
+    "jour_cloture": {
+      "type": "integer"
+    },
+    "mois_cloture": {
+      "type": "enumeration",
+      "enum": [
+        "Janvier",
+        "Février",
+        "Mars",
+        "Avril",
+        "Mai",
+        "Juin",
+        "Juillet",
+        "Aout",
+        "Septembre",
+        "Octobre",
+        "Novembre",
+        "Décembre"
+      ]
+    },
+    "codebanque": {
+      "type": "string"
+    },
+    "codeguichet": {
+      "type": "string"
+    },
+    "numerocompte": {
+      "type": "string"
+    },
+    "clerib": {
+      "type": "string"
+    },
+    "IBAN": {
+      "type": "string"
+    },
+    "BIC": {
+      "type": "string"
+    },
+    "documents": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::document.document",
+      "mappedBy": "mon_of"
+    },
+    "lieux": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::lieu.lieu",
+      "mappedBy": "mon_of"
+    },
+    "codeuai": {
+      "type": "string"
+    }
+  }
+}

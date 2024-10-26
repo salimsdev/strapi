@@ -1,0 +1,29 @@
+{
+  "kind": "collectionType",
+  "collectionName": "offres",
+  "info": {
+    "singularName": "offre",
+    "pluralName": "offres",
+    "displayName": "Offre",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "nom": {
+      "type": "string",
+      "required": false
+    },
+    "prix": {
+      "type": "integer"
+    },
+    "users": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "plugin::users-permissions.user",
+      "mappedBy": "offre"
+    }
+  }
+}

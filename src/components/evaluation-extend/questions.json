@@ -1,0 +1,12 @@
+{
+  "collectionName": "components_evaluation_extend_questions",
+  "info": {
+    "displayName": "questions"
+  },
+  "options": {},
+  "attributes": {
+    "intitule": {
+      "type": "string"
+    }
+  }
+}

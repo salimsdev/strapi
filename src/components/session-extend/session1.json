@@ -1,0 +1,65 @@
+{
+  "collectionName": "components_session_extend_session1s",
+  "info": {
+    "displayName": "Session1",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "module": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::module.module"
+    },
+    "dates_modules": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::dates-module.dates-module"
+    },
+    "selectTypeDate": {
+      "type": "enumeration",
+      "enum": [
+        "Entrer un intervalle de dates",
+        "Sélectionner toutes les dates"
+      ]
+    },
+    "startInterval": {
+      "type": "datetime"
+    },
+    "endInterval": {
+      "type": "datetime"
+    },
+    "gestionFormateurs": {
+      "type": "enumeration",
+      "enum": [
+        "un",
+        "plusieurs"
+      ]
+    },
+    "rh": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::rh.rh"
+    },
+    "rhs": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::rh.rh"
+    },
+    "stagiaires_presents": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::stagiaire.stagiaire"
+    },
+    "documents": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::document.document"
+    },
+    "lieu": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::lieu.lieu"
+    }
+  }
+}

@@ -1,0 +1,79 @@
+{
+  "kind": "collectionType",
+  "collectionName": "evaluation_stagiaires",
+  "info": {
+    "singularName": "evaluation-stagiaire",
+    "pluralName": "evaluation-stagiaires",
+    "displayName": "Evaluation-stagiaire",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "nom": {
+      "type": "string"
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "Test de positionnement",
+        "Questionnaire d'évaluation des besoins",
+        "Questionnaire d'évaluation des besoins handicap",
+        "Evaluation de début de formation",
+        "Evaluation en cours de formation",
+        "Evaluation de fin de formation",
+        "Questionnaire de satisfaction à chaud",
+        "Questionnaire de satisfaction à froid",
+        "Questionnaire de satisfaction formateur",
+        "Questionnaire de satisfaction employeur",
+        "Questionnaire de satisfaction financeur"
+      ]
+    },
+    "stagiaire": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::stagiaire.stagiaire",
+      "inversedBy": "evaluation_stagiaires"
+    },
+    "session": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::session.session",
+      "inversedBy": "evaluation_stagiaires"
+    },
+    "action": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::action.action",
+      "inversedBy": "evaluation_stagiaires"
+    },
+    "formation": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::formation.formation",
+      "inversedBy": "evaluation_stagiaires"
+    },
+    "question_stagiaires": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::question-stagiaire.question-stagiaire"
+    },
+    "id_evaluation": {
+      "type": "biginteger"
+    },
+    "note": {
+      "type": "decimal"
+    },
+    "commentaire": {
+      "type": "text"
+    },
+    "user": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "evaluation_stagiaires"
+    }
+  }
+}

@@ -75,7 +75,7 @@
     "endDate": {
       "type": "datetime"
     },
-    "session_modules": {
+    "modu": {
       "type": "component",
       "repeatable": true,
       "component": "session-extend.session1"

@@ -2474,7 +2474,7 @@ export interface ApiSessionSession extends Schema.CollectionType {
     >;
     startDate: Attribute.DateTime;
     endDate: Attribute.DateTime;
-    session_modules: Attribute.Component<'session-extend.session1', true>;
+    modu: Attribute.Component<'session-extend.session1', true>;
     session_stagiaires: Attribute.Component<'session-extend.session2', true>;
     action: Attribute.Relation<
       'api::session.session',

@@ -61,9 +61,9 @@ export interface SessionExtendSessionEvaluations extends Schema.Component {
 }
 
 export interface SessionExtendSession1 extends Schema.Component {
-  collectionName: 'components_session_extend_session1s';
+  collectionName: 'components_session_extend_s1s';
   info: {
-    displayName: 'Session1';
+    displayName: 'S1';
     description: '';
   };
   attributes: {

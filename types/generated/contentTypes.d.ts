@@ -2491,10 +2491,7 @@ export interface ApiSessionSession extends Schema.CollectionType {
       'oneToMany',
       'api::evaluation-stagiaire.evaluation-stagiaire'
     >;
-    session_evaluations: Attribute.Component<
-      'session-extend.session-evaluations',
-      true
-    >;
+    eval: Attribute.Component<'session-extend.session-evaluations', true>;
     veilles: Attribute.Relation<
       'api::session.session',
       'oneToMany',

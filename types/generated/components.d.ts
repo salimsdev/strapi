@@ -45,9 +45,9 @@ export interface ReponsesStagiaireExtendReponses extends Schema.Component {
 }
 
 export interface SessionExtendSessionEvaluations extends Schema.Component {
-  collectionName: 'components_session_extend_session_evaluations';
+  collectionName: 'components_session_extend_eval';
   info: {
-    displayName: 'session_evaluations';
+    displayName: 'eval';
     description: '';
   };
   attributes: {

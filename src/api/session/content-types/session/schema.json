@@ -104,7 +104,7 @@
       "target": "api::evaluation-stagiaire.evaluation-stagiaire",
       "mappedBy": "session"
     },
-    "session_evaluations": {
+    "eval": {
       "displayName": "session_evaluations",
       "type": "component",
       "repeatable": true,
